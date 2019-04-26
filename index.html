@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>Data Analyst Wild Code School</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Formation Data Analyst en 5 mois - Wild Code School">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+    /* Polices */
+    @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+    @import url('https://fonts.googleapis.com/css?family=Raleway');
+
+    body {
+      line-height: 1.8;
+      color: #818181;
+    }
+
+    h1,
+    h2 {
+      font-family: 'Varela Round', sans-serif;
+    }
+    p, a, li {
+      font-family: 'Raleway', sans-serif;
+    }
+
+    h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 700;
+      margin-bottom: 30px;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .Rezo {
+      padding-top: 7%;
+      margin: 2%;
+      letter-spacing: 5%;
+    }
+
+    .jumbotron {
+      background-color: #F76C6C;
+      color: #fff;
+      padding: 100px 25px;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .container-fluid {
+      padding: 60px 50px;
+    }
+
+    .bg-grey {
+      background-color: #f6f6f6;
+    }
+
+    .logo-small {
+      color: #f4511e;
+      font-size: 50px;
+    }
+
+    .logo {
+      color: #F76C6C;
+      font-size: 200px;
+    }
+
+    .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+    }
+
+    .carousel-control.right,
+    .carousel-control.left {
+      background-image: none;
+      color: #F76C6C;
+    }
+
+    .carousel-indicators li {
+      border-color: #F76C6C;
+    }
+
+    .carousel-indicators li.active {
+      background-color: #F76C6C;
+    }
+
+    .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+    }
+
+    .item span {
+      font-style: normal;
+    }
+
+    .panel {
+      border: 1px solid #f4511e;
+      border-radius: 0 !important;
+      transition: box-shadow 0.5s;
+    }
+
+    .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
+    }
+
+    .panel-footer .btn:hover {
+      border: 1px solid #f4511e;
+      background-color: #fff !important;
+      color: #f4511e;
+    }
+
+    .panel-heading {
+      color: #fff !important;
+      background-color: #f4511e !important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    .panel-footer {
+      background-color: white !important;
+    }
+
+    .panel-footer h3 {
+      font-size: 32px;
+    }
+
+    .panel-footer h4 {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #f4511e;
+      color: #fff;
+    }
+
+    .navbar {
+      margin-bottom: 0;
+      background-color: #F76C6C;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .navbar li a,
+    .navbar .navbar-brand {
+      color: #fff !important;
+    }
+
+    .navbar-nav li a:hover,
+    .navbar-nav li.active a {
+      color: #F76C6C !important;
+      background-color: #fff !important;
+    }
+
+    .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+    }
+
+    footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #f4511e;
+    }
+
+    .slideanim {
+      visibility: hidden;
+    }
+
+    .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+    }
+
+    @keyframes slide {
+      0% {
+        opacity: 0;
+        transform: translateY(70%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+
+    @-webkit-keyframes slide {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+      }
+
+      .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .logo {
+        font-size: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" Cache-Control: max-age=2592000, public>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#myPage">
+          <img src="logo wild.png" alt="Logo" width="95">
+
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#ecole">La Wild Code School</a></li>
+          <li><a href="#formation">La formation</a></li>
+          <li><a href="#technologies">Les technologies</a></li>
+          <li><a href="#eleves">Les élèves</a></li>
+          <li><a href="#staff">Le staff</a></li>
+          <li><a href="#contact">Nous contacter</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron text-center">
+    <h1>Wild Code School</h1>
+    <p>Promotion Data Analyst - Mars 2019</p>
+  </div>
+
+  <!-- Container (About Section) -->
+  <div id="ecole" class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8">
+        <h2>La Wild Code School</h2><br>
+        <h4>Des formations en phase avec les besoins des entreprises.</h4><br>
+        <p>La Wild Code School est un réseau d'écoles proposant des formations courtes et professionnalisantes. Elle
+          permet d'accéder à des métiers numériques d'avenir : développeur web ou mobile, data analyst. Elle est
+          présente dans 13 campus en France et 6 campus en Europe.
+          <br><br>
+          Cette page vous fera découvrir la promotion Data Analyst Mars 2019 de Paris.</p>
+        <br><a href="https://wildcodeschool.fr/" target=”_blank”><button class="btn btn-primary btn-lg">Pour en savoir
+            plus sur l'école</button></a>
+      </div>
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-education logo"></span>
+      </div>
+    </div>
+  </div>
+
+  <div id="formation" class="container-fluid bg-grey">
+    <div class="row">
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-send logo slideanim"></span>
+      </div>
+      <div class="col-sm-8">
+        <h2>La formation</h2><br>
+        <h4><strong>Le métier de Data Analyst vu par la première promotion (septembre 2018) :</strong></h4>
+        <p> Un humain sachant
+          communiquer avec brio
+          l’ensemble de son travail sur la donnée. Il utilise ses compétences analytiques et techniques pour analyser et
+          explorer la donnée dans le but de prendre des décisions adaptées (data driven). Il doit souvent être technique
+          et manipuler la donnée en SQL et en Python en plus des outils de dashboarding. La statistique est évidemment
+          essentielle pour s’assurer que le visuel produit est mesurable quantitativement et que le raisonnement est
+          scientifiquement robuste.</p><br>
+        <h4><strong>Notre vision : </strong></h4><p> La formation répond à cette définition, mais ne s'arrête pas qu'à ça. En
+          plus des hard-skills, les élèves développent des soft-skills indispensables pour les entreprises.</p>
+        <a href="https://wildcodeschool.fr/formation-data-analyst/" target=”_blank”><button
+            class="btn btn-primary btn-lg">Pour en savoir plus sur la formation</button></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container (Services Section) -->
+  <div id="technologies" class="container-fluid text-center">
+    <h2>Les technologies</h2>
+    <h4>Qu'est ce qu'ils savent utiliser ?</h4>
+    <br>
+    <div class="row slideanim">
+      <div class="col-sm-4">
+        <img src="https://fontmeme.com/images/Python-Logo.jpg" alt="Logo" width="250px" height="250px">
+        <h4>Python</h4>
+        <p>Ils savent coder comme des bêtes</p>
+      </div>
+      <div class="col-sm-4">
+        <img src="https://taazaa.com/wp-content/uploads/2016/01/no-sql.png" alt="Logo" width="250px" height="250px">
+        <h4>SQL/NoSQL</h4>
+        <p>Ils requêtes sans hésitation</p>
+      </div>
+      <div class="col-sm-4">
+        <img
+          src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/101803165/original/99880297ff37da685ff5101e454ce7d17ef62397/web-scraping-mining-harvesting-data-extraction.png"
+          alt="Logo" width="250px" height="250px">
+        <h4>Web Scraping</h4>
+        <p>Ils savent scraper en toute légalité</p>
+      </div>
+    </div>
+    <br><br>
+    <div class="row slideanim">
+      <div class="col-sm-4">
+        <img src="https://image.freepik.com/vecteurs-libre/concept-gestion-projet-homme-affaires-bleu_23-2147783509.jpg"
+          width="250px" height="250px">
+        <h4>Gestion de projet</h4>
+        <p>Ils sont agiles avec SCRUM</p>
+      </div>
+      <div class="col-sm-4">
+        <img
+          src="http://static1.squarespace.com/static/502feae7e4b0dbdecd3e61d8/563a3e52e4b0da62c6ae6c5c/577e9b7937c581b3331e786f/1467919631168/data+viz+stock+image.jpg?format=1500w"
+          width="250px" height="250px" alt="Logo">
+        <h4>Dataviz</h4>
+        <p>Ce sont des artistes dans l'âme</p>
+      </div>
+      <div class="col-sm-4">
+        <img src="http://www.hrmonline.com.au/wp-content/uploads/2016/09/learning-robot-.jpg" width="250px"
+          height="250px" alt="Logo">
+        <h4 style="color:#303030;">Machine Learning</h4>
+        <p>Les machines apprennent beaucoup en leur compagnie</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container (Portfolio Section) -->
+  <div id="eleves" class="container-fluid text-center bg-grey">
+    <h2>Les élèves</h2><br>
+    <h4>Des professionnels formés pour être opérationnels.</h4>
+
+    <div class="row text-center slideanim">
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/anisUltimateFinalDecisiveForm2.jpg" alt="Anis" width="400" height="300">
+          <p><strong>Anis Sahli</strong></p>
+          <p>"Je me cogne souvent la tête"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/anis-sahli-50ba8417a/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+
+      </div>
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Armand.jpg" alt="Armand" width="400" height="300">
+          <p><strong>Armand Breton</strong></p>
+          <p>"Hip-Hop"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/armand-breton-34811b181/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Benoît Bouillaud.jpg" alt="Benoît" width="400" height="300">
+          <p><strong>Benoît Bouillaud</strong></p>
+          <p>"Attiré par l'inconnu"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/benoitbouillaud/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Cassandra.jpg" alt="Cassandra" width="400" height="300">
+          <p><strong>Cassandra Virapin</strong></p>
+          <p>"J'aime la K-pop"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/cassandravirapin/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+    </div><br>
+
+    <div class="row text-center slideanim">
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Cassandre BECHU.jpg" alt="Cassandre" width="400" height="300">
+          <p><strong>Cassandre Béchu</strong></p>
+          <p>"YOLO"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/cassandre-b%C3%A9chu-le-berre-968ba443/"><button
+              type="button" class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Damien L.jpg" alt="DamienL" width="400" height="300">
+          <p><strong>Damien Launay</strong></p>
+          <p>"Tenace"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/damien-launay-7540b7176/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Damien V.jpg" alt="DamienV" width="400" height="300">
+          <p><strong>Damien Verlinde</strong></p>
+          <p>"Je me lève pour le basket"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/damien-verlinde-3249b294/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Dhia.jpg" alt="Dhia" width="400" height="300">
+          <p><strong>Dhia Rajeb</strong></p>
+          <p>"Born to be a wiiiiild"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/dhia-rajeb-a6a990134"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+    </div><br>
+
+    <div class="row text-center slideanim">
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Doriane.jpg" alt="Dorianne" width="400" height="300">
+          <p><strong>Dorianne Desmazon</strong></p>
+          <p>"La boule à zéro à 17 ans"</p>
+          <!--Le profil linkedin à mettre à jour pour Dorianne.-->
+          <a target="_blank" href=""><button type="button" class="btn btn-primary">Not available</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/EliottLeGrand.jpg" alt="Eliott" width="400" height="300">
+          <p><strong>Eliott Hountchégnon</strong></p>
+          <p>"J'aime le café, j'aime les chats"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/eliott-hountchegnon-354056182"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/franck3.6.jpg" alt="Franck" width="400" height="300">
+          <p><strong>Franck Ngnodjom</strong></p>
+          <p>"Gentil Rebelle"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/franck-ngnodjom-68bb897a/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Kévin.jpg" alt="Kévin" width="400" height="300">
+          <p><strong>Kevin Gravelot</strong></p>
+          <p>*Insérer une phrase*</p>
+          <a target="_blank" href="https://www.linkedin.com/in/kevin-gravelot-924917182/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+    </div><br>
+
+    <div class="row text-center slideanim">
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Laien_wu.jpg" alt="Laien" width="400" height="300">
+          <p><strong>Laien Wu</strong></p>
+          <p>"Je marche des km pour aller en cours"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/laien-wu-57a333182/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Marine.jpg" alt="Marine" width="400" height="300">
+          <p><strong>Marine Chan</strong></p>
+          <p>"J'aime les plantes"</p>
+          <!--Le profil linkedin à mettre à jour pour Marine-Chan.-->
+          <a target="_blank" href=""><button type="button" class="btn btn-primary">Not available</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/sacha.jpg" alt="Sacha" width="400" height="300">
+          <p><strong>Sacha Humblot</strong></p>
+          <p>"Crypto Enthusiast"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/sacha-humblot-783a1717/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Sarah.jpg" alt="Sarah" width="400" height="300">
+          <p><strong>Sarah Wampé-Mbonsiko</strong></p>
+          <p>"Tenacement calme"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/sarah-wampe-75a425152/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+    </div><br>
+
+    <div class="row text-center slideanim">
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Volodymyr OSINCHUK.jpg" alt="Volodomyr" width="400" height="300">
+          <p><strong>Volodymyr Osinchuk</strong></p>
+          <p>"Un d'origine intéressante"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/volodymyr-osinchuk-7b439793/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Chèvre.jpg" alt="Enrick" width="400" height="300">
+          <p><strong>Enrick Bernard</strong></p>
+          <p>"Panthère"</p>
+          <a target="_blank" href="https://www.linkedin.com/in/enrick-bernard-972360182/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/chatSniper.jpg" alt="Julie" width="400" height="300">
+          <p><strong>Julie Nouari</strong></p>
+          <p>"Tireuse d'élite (ou presque)"</p>
+          <a target="_blank" href="https://fr.linkedin.com/in/julie-nouari"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="./Photos pour site/Alexandra3.jpg" alt="Alexandra" width="400" height="300">
+          <p><strong>Alexandra Cisse</strong></p>
+          <p>"No cooking"</p>
+          <!--Le profil linkedin à mettre à jour pour Alexandra.-->
+          <a target="_blank" href=""><button type="button" class="btn btn-primary">Not available</button></a>
+        </div>
+      </div>
+    </div><br>
+
+
+    <h2>Leur côté "Wild"</h2>
+    <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+        <li data-target="#myCarousel" data-slide-to="6"></li>
+        <li data-target="#myCarousel" data-slide-to="7"></li>
+        <li data-target="#myCarousel" data-slide-to="8"></li>
+        <li data-target="#myCarousel" data-slide-to="9"></li>
+        <li data-target="#myCarousel" data-slide-to="10"></li>
+        <li data-target="#myCarousel" data-slide-to="11"></li>
+        <li data-target="#myCarousel" data-slide-to="12"></li>
+        <li data-target="#myCarousel" data-slide-to="13"></li>
+        <li data-target="#myCarousel" data-slide-to="14"></li>
+        <li data-target="#myCarousel" data-slide-to="15"></li>
+        <li data-target="#myCarousel" data-slide-to="16"></li>
+        <li data-target="#myCarousel" data-slide-to="17"></li>
+        <li data-target="#myCarousel" data-slide-to="18"></li>
+        <li data-target="#myCarousel" data-slide-to="19"></li>
+
+
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <h4>"Crypto Enthusiast"<br><span>Sacha Humblot</span></h4>
+          <!--1-->
+        </div>
+        <div class="item">
+          <h4>"Tireuse d'élite (ou presque)"<br><span>Julie Nouari</span></h4>
+          <!--2-->
+        </div>
+        <div class="item">
+          <h4>"J'aime la K-pop"<br><span>Cassandra Virapin</span></h4>
+          <!--3-->
+        </div>
+        <div class="item">
+          <h4>"No cooking"<br><span>Alexandra Cisse</span></h4>
+          <!--4-->
+        </div>
+        <div class="item">
+          <h4>"Panthère"<br><span>Enrick Bernard</span></h4>
+          <!--5-->
+        </div>
+        <div class="item">
+          <h4>"Un d'origine intéressant"<br><span>Volodymyr Osinchuk</span></h4>
+          <!--6-->
+        </div>
+        <div class="item">
+          <h4>"Un d'origine intéressant"<br><span>Volodymyr Osinchuk</span></h4>
+          <!--7-->
+        </div>
+        <div class="item">
+          <h4>"Tenacement calme"<br><span>Sarah Wampé-Mbonsiko</span></h4>
+          <!--8-->
+        </div>
+        <div class="item">
+          <h4>"J'aime les plantes"<br><span>Marine Chan</span></h4>
+          <!--9-->
+        </div>
+        <div class="item">
+          <h4>"Je marche des km pour aller en cours"<br><span>Laien Wu</span></h4>
+          <!--10-->
+        </div>
+        <div class="item">
+          <h4>"Gentil rebelle"<br><span>Franck NgnoDjom</span></h4>
+          <!--11-->
+        </div>
+        <div class="item">
+          <h4>"J'aime le café, j'aime les chats"<br><span>Eliott Hountchégnon</span></h4>
+          <!--12-->
+        </div>
+        <div class="item">
+          <h4>"La boule à zéro à 17 ans"<br><span>Dorianne Desmazon</span></h4>
+          <!--13-->
+        </div>
+        <div class="item">
+          <h4>"Born to be a wiiiiild"<br><span>Dhia Rajeb</span></h4>
+          <!--14-->
+        </div>
+        <div class="item">
+          <h4>"Je me lève pour le basket"<br><span>Damien Verlinde</span></h4>
+          <!--15-->
+        </div>
+        <div class="item">
+          <h4>"Tenace"<br><span>Damien Launay</span></h4>
+          <!--16-->
+        </div>
+        <div class="item">
+          <h4>"YOLO"<br><span>Cassandre Bechu</span></h4>
+          <!--17-->
+        </div>
+        <div class="item">
+          <h4>"Attiré par l'inconnu"<br><span>Benoît Bouillaud</span></h4>
+          <!--18-->
+        </div>
+        <div class="item">
+          <h4>"Hip-Hop"<br><span>Armand Breton</span></h4>
+          <!--19-->
+        </div>
+        <div class="item">
+          <h4>"Je me cogne souvent la tête"<br><span>Anis Sahli</span></h4>
+          <!--20-->
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Staff -->
+  <div id="staff" class="container-fluid text-center bg-grey">
+    <h2>Le staff</h2><br>
+
+    <div class="row text-center slideanim">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img
+            src="https://media.licdn.com/dms/image/C4D03AQE6Bn5mKqe8Tg/profile-displayphoto-shrink_200_200/0?e=1560988800&v=beta&t=MQqJuZVNZECQMQkXaZIuoyi5TuuUMgzvKPc4mKhJP9s"
+            alt="New York">
+          <p><strong>Patrick</strong></p>
+          <p>"Busy life"</p>
+          <p>Formateur Data</p>
+          <a target="_blank" href="https://www.linkedin.com/in/patrick-wamp%C3%A9-125a4991/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img
+            src="https://media.licdn.com/dms/image/C5603AQEtdFR_-WqJMw/profile-displayphoto-shrink_800_800/0?e=1560988800&v=beta&t=p1fp-eQueIBcxwau8uSLZDj6gHXOzQMisKTqZSwGjj8"
+            alt="Paris">
+          <p><strong>Florence</strong></p>
+          <p>"Je manage des deadlines serrées"</p>
+          <p>Program Manager</p>
+          <a target="_blank" href="https://www.linkedin.com/in/florence-gilbert-tersiguel-64658643/"><button
+              type="button" class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img
+            src="https://media.licdn.com/dms/image/C5603AQH5JTmN5bA98g/profile-displayphoto-shrink_800_800/0?e=1560988800&v=beta&t=T9ujqN-sjMh8fSGNDzVlu_Sv9Rs3ToZn2SyquF81J_Q"
+            alt="Gred Mpoy">
+          <p><strong>Gred</strong></p>
+          <p>"Busy life also"</p>
+          <p>Futur Data Scientist</p>
+          <a target="_blank" href="https://www.linkedin.com/in/gred-mpoy-030778101/"><button type="button"
+              class="btn btn-primary">Linkedin</button></a>
+        </div>
+      </div>
+    </div><br>
+
+    <!-- Staff -->
+
+
+    <!-- Container (Contact Section) -->
+    <div id="contact" class="container-fluid">
+      <h2 class="text-center">Nous contacter</h2>
+      <div class="row">
+        <div class="col-sm-5">
+          <p>N'hésitez pas à nous contacter et nous vous répondrons dans les plus bref délais.</p>
+          <p><span class="glyphicon glyphicon-map-marker"></span> 11 Rue de Poissy, 75005 Paris</p>
+          <p><span class="glyphicon glyphicon-phone"></span> +33 6 31 52 98 46</p>
+          <p><span class="glyphicon glyphicon-envelope"></span>florence@wildcodeschool.fr</p>
+        </div>
+        <form class="col-sm-7 slideanim" action="https://formspree.io/florence@wildcodeschool.fr" method="POST">
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <input class="form-control" id="name" name="name" placeholder="Nom et prénom" type="text" required>
+            </div>
+            <div class="col-sm-6 form-group">
+              <input class="form-control" id="email" name="_replyto" placeholder="Email" type="email" required>
+            </div>
+          </div>
+          <textarea class="form-control" id="comments" name="comments" placeholder="Commentaire" rows="5"
+            required></textarea><br>
+          <div class="row">
+            <div class="col-sm-12 form-group">
+              <button class="btn btn-default pull-right" type="submit">Envoyer</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- Image of location/map -->
+    <!--
+<img src="https://www.google.com/maps/vt/data=9MpMnqBKcj6Cj4XQysbYOzDJLSYpirh4vQujeEiXi87tidHK9HdNPjJ3fd4vuf0S0mmfjNQzvygeY83fywZU842g5Ca8hBYqILQamqewgSOb54cD7Dl93lnehtUeDF7ISQDn3kMHVSzcJUBDo9c9zSRTMyLTEvZGkpzDuI1X9oZl1vWsyZgh1JUI7XqtmucJxXL-FjoTsl-MeyVvf1Lv0z9x8vvnco4" class="w3-image w3-greyscale-min" style="width:100%">-->
+
+    <footer class="container-fluid text-center">
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.479197102473!2d2.3504113155656823!3d48.849071979286606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671e4f9ed9097%3A0x21f0557e9b283397!2sWild+Code+School+-+Formation+d%C3%A9veloppeur+web+et+data+analyst!5e0!3m2!1sfr!2sfr!4v1554474180823!5m2!1sfr!2sfr"
+        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+      <a href="#myPage" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+
+      <div>
+        <img class="Rezo" onclick="window.open('https://twitter.com/wildcodeschool')" src="./twitter.png">
+        &nbsp;
+        <img class="Rezo" onclick="window.open('https://www.linkedin.com/school/wild-codes-chool/')" src="pape.png">
+        &nbsp;
+        <img class="Rezo" onclick="window.open('https://fr-fr.facebook.com/wildcodeschool/')" src="./facebook.png">
+      </div>
+
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 900, function () {
+
+              // Add hash (#) to URL when done scrolling (default click behavior)
+              window.location.hash = hash;
+            });
+          } // End if
+        });
+
+        $(window).scroll(function () {
+          $(".slideanim").each(function () {
+            var pos = $(this).offset().top;
+
+            var winTop = $(window).scrollTop();
+            if (pos < winTop + 600) {
+              $(this).addClass("slide");
+            }
+          });
+        });
+      })
+    </script>
+
+</body>
+
+</html>
